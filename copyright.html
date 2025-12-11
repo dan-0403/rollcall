@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Copyright Notice — RollCall Attendance Management System</title>
+  <style>
+    :root{
+      --card:#ffffff;
+      --muted:#6b7280;
+      --shadow:0 6px 18px rgba(9,30,66,0.08);
+      --accent:#7a4bff;
+      --radius:12px;
+      --pad:22px;
+      --maxw:900px;
+      font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background:linear-gradient(180deg,#0a0130,#1c0068);
+      color:#0f1724;
+      line-height:1.55;
+      scroll-behavior:smooth;
+    }
+
+    .wrap{
+      max-width:var(--maxw);
+      margin:30px auto;
+      padding:16px;
+      transform: translateY(350px)
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:var(--pad);
+      border:1px solid rgba(11,107,117,0.06);
+
+     
+    }
+
+    header h1{
+      font-size:1.35rem;
+      margin:0;
+      letter-spacing:-0.4px;
+    }
+
+    .lead{
+      margin:6px 0 16px;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    section p{ margin:0 0 14px; color:#2b3742; font-size:.97rem;}
+    section strong{ color:#0a0f1c; }
+
+    footer{
+      border-top:1px dashed rgba(15,23,36,0.06);
+      padding-top:14px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+      margin-top:16px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      text-decoration:none;
+      background:var(--accent);
+      color:white;
+      padding:8px 14px;
+      border-radius:8px;
+      font-weight:600;
+      font-size:.9rem;
+      display:inline-block;
+    }
+
+    .muted{ color:var(--muted); font-size:.9rem;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card" role="main">
+      <header>
+        <h1>COPYRIGHT NOTICE</h1>
+        <p class="lead">© <span id="year"></span> <strong>RollCall Attendance Management System</strong>. All rights reserved.</p>
+      </header>
+
+      <section>
+        <p><strong>Statement/Declaration of Rights</strong></p>
+        <p>
+          Subject to the provisions of this notice, this website and all its content, information,
+          or material is the copyright of <strong>RollCall</strong>, together with its licensors.
+          Accordingly, your use of our website or its services does not constitute any license to
+          use the copyright in our website.
+        </p>
+        <p>
+          Except to the extent permitted by the applicable copyright law or
+          <strong>RollCall</strong>, any form of use, reproduction, or redistribution of
+          part or all of the content, information, or material on this website in any form is
+          hereby prohibited.
+        </p>
+        <p>
+          You may not, except otherwise with prior permission and express written consent by
+          <strong>RollCall</strong>, copy, download, print, extract, exploit, adapt, edit,
+          modify, republish, reproduce, rebroadcast, duplicate, distribute, or publicly display
+          any of the content, information, or material on this website for non-personal or
+          commercial purposes, except as permitted by applicable copyright law.
+        </p>
+        <p>
+          You may also not transmit, host, or store any such content, information, or material in
+          any form or through any means, including but not limited to photocopying, recording,
+          or in any print, electronic or digital form, or on any other website.
+        </p>
+        <p>
+          However, you are permitted to copy the content, information, or material on this website
+          for personal use, educational use of individual third parties, government use, or any
+          other use permitted under the applicable copyright law, while acknowledging
+          <strong>RollCall</strong> as the source.
+        </p>
+        <p>
+          Subject to our terms & conditions, you are not permitted to post information or add
+          content copyrighted by third parties. Pursuant to the Digital Millennium Copyright
+          Act (DMCA), <strong>RollCall</strong> will respond to takedown notices or abuse
+          reports by copyright owners to remove any infringing content on this website.
+        </p>
+        <p>
+          <strong>RollCall</strong> will not be responsible for the quality, accuracy,
+          completeness, or appropriateness of the content, information, or material on this
+          website.
+        </p>
+      </section>
+
+      <footer>
+        <div class="muted">© <span id="year2"></span> RollCall Atendance Management System</div>
+        <div>
+          <a href="index.html" class="btn">Back Home</a>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    // Auto-update copyright year
+    const y = new Date().getFullYear();
+    document.getElementById("year").textContent = y;
+    document.getElementById("year2").textContent = y;
+  </script>
+</body>
+</html>

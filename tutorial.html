@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RollCall Tutorial</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<style>
+/* ============================
+   GLOBAL DESIGN
+============================ */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #f5f5f7;
+    color: #1a1a1a;
+}
+
+header {
+    width: 100%;
+    padding: 20px 10%;
+    background: #0a002e;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+header nav a {
+    margin-left: 25px;
+    color: #ffffffcc;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: #a883ff;
+}
+
+/* ============================
+   HERO SECTION
+============================ */
+.tutorial-hero {
+    background: linear-gradient(145deg, #17014e, #3b0ca3);
+    color: #fff;
+    text-align: center;
+    padding: 90px 20px;
+    border-radius: 0 0 30px 30px;
+}
+
+.tutorial-hero h1 {
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.tutorial-hero p {
+    font-size: 18px;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+/* ============================
+   TUTORIAL SECTION
+============================ */
+.tutorial-section {
+    padding: 60px 10%;
+}
+
+.section-title {
+    font-size: 34px;
+    color: #2a0d75;
+    font-weight: 700;
+    text-align: center;
+}
+
+.section-sub {
+    text-align: center;
+    color: #444;
+    opacity: 0.8;
+    margin-bottom: 40px;
+    font-size: 16px;
+}
+
+/* Tutorial Content Boxes */
+.tutorial-box {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+/* STEP BOX */
+.step {
+    background: #fff;
+    padding: 25px 30px;
+    border-radius: 18px;
+    border: 1px solid #eceefe;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    transition: 0.3s ease;
+}
+
+.step:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.step h3 {
+    font-size: 22px;
+    color: #4a18c6;
+    margin-bottom: 10px;
+}
+
+.step p {
+    color: #4d4d4d;
+    line-height: 1.6;
+}
+
+.step ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.step li {
+    margin-bottom: 6px;
+    color: #333;
+    font-size: 15px;
+}
+
+.step-img {
+    width: 100%;
+    border-radius: 14px;
+    margin-top: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+}
+
+/* DIFFERENT COLORS FOR ADMIN + EMPLOYEE */
+#admin .step {
+    border-left: 6px solid #7e46ff;
+}
+
+#employee .step {
+    border-left: 6px solid #00c27a;
+}
+
+/* ============================
+   FOOTER
+============================ */
+.footer {
+    background: #0a002e;
+    color: #fff;
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+    font-size: 15px;
+}
+</style>
+
+<body>
+
+<!-- Header -->
+<header class="header">
+    <div class="logo">RollCall</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#admin">Admin Tutorial</a>
+        <a href="#employee">Employee Tutorial</a>
+    </nav>
+</header>
+
+<!-- Hero Section -->
+<section class="tutorial-hero">
+    <h1>RollCall System Tutorial</h1>
+    <p>Learn how to use RollCall as an Admin or Employee with this complete guide.</p>
+</section>
+
+<!-- Admin Tutorial Section -->
+<section id="admin" class="tutorial-section">
+    <h2 class="section-title">Administrator Tutorial</h2>
+    <p class="section-sub">Guide for managing the system, employee accounts, and attendance records.</p>
+
+    <div class="tutorial-box">
+
+        <div class="step">
+            <h3>1. Log In as Administrator</h3>
+            <p>Use your admin credentials to sign in and access the dashboard. This is where you see the system overview.</p>
+            
+        </div>
+
+        <div class="step">
+            <h3>2. Understanding the Dashboard</h3>
+            <p>The dashboard displays:</p>
+            <ul>
+                <li>Total employees</li>
+                <li>Employees on time today</li>
+                <li>Late employees</li>
+                <li>On-time percentage</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>3. Viewing Attendance Records</h3>
+            <p>The Attendance table shows daily logs including:</p>
+            <ul>
+                <li>Date</li>
+                <li>Employee ID</li>
+                <li>Name</li>
+                <li>Status (On Time / Late / Absent)</li>
+                <li>Time In & Time Out</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>4. Adding Attendance Manually</h3>
+            <p>Click <strong>+ Add New</strong> to create a new attendance record. Fill in:</p>
+            <ul>
+                <li>Employee ID</li>
+                <li>Name</li>
+                <li>Time In</li>
+                <li>Time Out</li>
+                <li>Status</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>5. Managing Employees</h3>
+            <p>Go to the <strong>Employees</strong> tab where you can:</p>
+            <ul>
+                <li>Add new employee accounts</li>
+                <li>Edit employee info</li>
+                <li>Delete employee profiles</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>6. Viewing Attendance Logs</h3>
+            <p>Check the <strong>Attendance Logs</strong> section to view raw time-in and time-out submissions.</p>
+        </div>
+
+        <div class="step">
+            <h3>7. Generating Reports</h3>
+            <p>Use the <strong>Sheet Report</strong> panel to export attendance reports (daily, weekly, monthly) as spreadsheets.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Employee Tutorial Section -->
+<section id="employee" class="tutorial-section">
+    <h2 class="section-title">Employee Tutorial</h2>
+    <p class="section-sub">Guide for regular employees using RollCall for attendance.</p>
+
+    <div class="tutorial-box">
+
+        <div class="step">
+            <h3>1. Log In as Employee</h3>
+            <p>Enter your credentials to access your personal attendance page.</p>
+           
+        </div>
+
+        <div class="step">
+            <h3>2. Time In</h3>
+            <p>On your dashboard, click the <strong>Time In</strong> button to record your arrival. The system will save the exact timestamp automatically.</p>
+        </div>
+
+        <div class="step">
+            <h3>3. Time Out</h3>
+            <p>When leaving, press the <strong>Time Out</strong> button. This updates:</p>
+            <ul>
+                <li>Your daily log</li>
+                <li>Your attendance status</li>
+                <li>Your total working hours</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>4. Viewing Your Attendance</h3>
+            <p>You can view your attendance history including:</p>
+            <ul>
+                <li>Dates present</li>
+                <li>Time In & Time Out</li>
+                <li>Lateness or on-time status</li>
+                <li>Absences</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>5. Notifications & Alerts</h3>
+            <p>Employees receive notifications for:</p>
+            <ul>
+                <li>Late marks</li>
+                <li>Schedule changes</li>
+                <li>Admin announcements</li>
+                <li>Attendance corrections</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>6. Updating Your Profile</h3>
+            <p>Some systems allow employees to update personal info (email, contact, password). If enabled, find it under <strong>Profile</strong>.</p>
+        </div>
+
+        <div class="step">
+            <h3>7. Logging Out</h3>
+            <p>Click <strong>Logout</strong> after your shift to keep your account secure.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" id="contact">
+    <p>© 2025 RollCall Attendance Management System. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

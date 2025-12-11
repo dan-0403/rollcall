@@ -1,0 +1,327 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RollCall</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/9c749cac5e.js" crossorigin="anonymous"></script>
+</head>
+<style>
+/* ------------------ ANIMATION KEYFRAMES ------------------ */
+@keyframes fadeSlideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@keyframes floatImage {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* ------------------ APPLY ANIMATIONS ------------------ */
+header {
+    animation: fadeSlideUp 1s ease forwards;
+}
+
+.hero-text {
+    animation: fadeSlideUp 1.2s ease forwards;
+}
+
+.hero-image .illustration {
+    animation: floatImage 3s ease-in-out infinite;
+}
+
+.features h2, .features p {
+    animation: fadeSlideUp 1s ease forwards;
+}
+
+/* Feature Cards Animation on Load */
+.feature-card {
+    opacity: 0;
+    transform: translateY(60px);
+    animation: fadeSlideUp 1s ease forwards;
+}
+
+/* Stagger animation delay */
+.feature-card:nth-child(1) { animation-delay: 0.3s; }
+.feature-card:nth-child(2) { animation-delay: 0.4s; }
+.feature-card:nth-child(3) { animation-delay: 0.5s; }
+.feature-card:nth-child(4) { animation-delay: 0.6s; }
+.feature-card:nth-child(5) { animation-delay: 0.7s; }
+.feature-card:nth-child(6) { animation-delay: 0.8s; }
+.feature-card:nth-child(7) { animation-delay: 0.9s; }
+.feature-card:nth-child(8) { animation-delay: 1s; }
+.feature-card:nth-child(9) { animation-delay: 1.1s; }
+.feature-card:nth-child(10) { animation-delay: 1.2s; }
+
+/* Hover effect */
+.feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.feature-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* Footer fade in */
+.mgb-footer {
+    animation: fadeIn 1.2s ease forwards;
+}
+
+/* LOGIN POPUP WRAPPER */
+.login-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.65);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+}
+
+/* POPUP CONTAINER */
+.login-popup {
+    width: 900px;
+    height: 520px;
+    border-radius: 22px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+}
+
+/* MAKE LOGIN.HTML FIT INSIDE */
+.login-popup iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+</style>
+<script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href'))
+            .scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+
+function openLogin() {
+    document.getElementById("loginOverlay").style.display = "flex";
+}
+
+window.addEventListener("message", function(event) {
+    if (event.data === "closeLogin") {
+        document.getElementById("loginOverlay").style.display = "none";
+        document.getElementById("loginIframe").src = "login.html"; // reset form
+    }
+});
+</script>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <div class="logo">RollCall</div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-text">
+            <h4 class="badge">Attendance Management system</h4>
+            <h1>RollCall</h1>
+            <p>
+               Welcome to RollCall Attendance Management System. Enjoy real-time tracking, instant notifications, and a smoother attendance process. Manage records effortlessly with automated and secure features.
+            </p>
+
+            <div class="hero-buttons">
+                <a onclick="openLogin()" class="btn filled">Get Started</a>
+                <a href="tutorial.html" class="btn outline">Tutorial</a>
+                
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <div class="illustration"></div>
+        </div>
+    </section>
+    
+    <!-- LOGIN POPUP OVERLAY -->
+<div id="loginOverlay" class="login-overlay">
+    <div id="loginContainer" class="login-popup">
+        <iframe src="login.html"></iframe>
+    </div>
+</div>
+
+
+    <!-- FEATURES SECTION -->
+    <section id="services"class="features">
+        <h2>Discover our top <span>Features</span></h2>
+        <p>The complete tool-kit for everything you will ever need to transform your workplace.</p>
+        
+
+    <section class="features-section">
+
+        <div class="feature-card">
+            <div class="icon">👁️</div>
+            <h2>Real-time Attendance Tracking</h2>
+            <p>Allows the system to automatically record attendance as soon as a student or employee checks in, ensuring accurate and up-to-date records.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">⏱️</div>
+            <h2>Automated Time-In & Time-Out Logging</h2>
+            <p>Captures the exact arrival and departure times of each user, eliminating manual entry and reducing errors.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">📊</div>
+            <h2>Absence & Tardy Monitoring</h2>
+            <p>Tracks late arrivals, early departures, and absences, helping identify irregular attendance patterns.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🔔</div>
+            <h2>Notifications & Alerts</h2>
+            <p>Sends instant messages through SMS, email, or app notifications to inform users about absences, late marks, schedule updates, or approval statuses.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">📝</div>
+            <h2>Leave Management</h2>
+            <p>Enables users to submit leave requests digitally while allowing administrators to approve or decline them within the system.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">📈</div>
+            <h2>Reports & Analytics</h2>
+            <p>Generates detailed daily, weekly, and monthly attendance summaries, including visual charts and exportable data.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🧑‍💼</div>
+            <h2>Role-Based Dashboards</h2>
+            <p>Provides customized interfaces for admins, teachers, supervisors, and individual users based on their access level.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">🔐</div>
+            <h2>Secure User Authentication</h2>
+            <p>Ensures that only authorized individuals can access the system through passwords, IDs, or biometric verification.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">📅</div>
+            <h2>Schedule & Shift Management</h2>
+            <p>Allows administrators to assign, organize, and modify class schedules or work shifts easily.</p>
+        </div>
+
+        <div class="feature-card">
+            <div class="icon">☁️</div>
+            <h2>Cloud Backup & Data Storage</h2>
+            <p>Securely saves attendance records online, ensuring they remain accessible and safe from data loss.</p>
+        </div>
+    </section>
+    </section>
+    
+    <footer class="mgb-footer">
+    <div class="newsletter">
+        <div>
+            <h2>Stay informed</h2>
+            <p>Sign up for our newsletter.</p>
+        </div>
+
+        <div class="newsletter-input">
+            <input type="email" placeholder="Your Email Address">
+            <button>Subscribe <i class="fa-solid fa-arrow-right" style="color: #4a3285;"></i></button>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="footer-main">
+        <div id="contact" class="footer-info">
+            <h3 class="footer-logo">RollCall</h3>
+
+            <p><strong>RollCall Attendance Management system</strong><br>
+            LSPU-SPCC, 38M6+6VQ, Cosico Ave, San Pablo City, 4000 Laguna</p>
+
+           
+
+            <div class="social-icons">
+                <a href="https://www.facebook.com/share/1GewtyGhpS/"><i class="fab fa-facebook"></i></a>
+                <a href="https://x.com/solpicodrenz?fbclid=IwY2xjawOlDWNleHRuA2FlbQIxMQBzcnRjBmFwcF9pZAwzNTA2ODU1MzE3MjgAAR5kNso3geyc4FWvUP76zOdcm7K1E7BfYKdxCbm5CFcgSEndZ0zqm41jmebCOw_aem_T119WhXmDpxdhMf6rKpKxA"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/dn_brnsa?igsh=ZjB2dmt3N3llZW82"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@gohan1867?_r=1&_t=ZS-9251ETBKejB"><i class="fa-brands fa-tiktok tiktok-gradient"></i></a>
+            </div>
+            
+            <div>
+                <h4>History</h4>
+                <p>The project began when the group identified the growing need for a fast, accurate, and user-friendly solution that could replace traditional paper-based attendance sheets, which often resulted in errors, delays, and lost records.</p>
+            </div>
+            
+           
+        </div>
+
+        <div id="about" class="footer-links">
+            <h2>About Us</h2>
+
+             <div>
+                <h4>Mission</h4>
+                <p>“To provide a fast, accurate, and user-friendly attendance tracking system that enhances productivity, reduces errors, and supports better management through real-time data and automation.”</p>
+            </div>
+            <div>
+                <h4>Vision</h4>
+                <p>“To become the most reliable and efficient attendance management platform that empowers organizations with accurate data, automated processes, and smart decision-making.”</p>
+            </div>
+
+  
+        </div>
+
+        <div class="footer-right">
+            <h4>Tools Used</h4>
+            <p>Visual Studio Code.</p>
+            <p>Xampp Server.</p>
+            <p>Database.</p>
+            <p>Language used: HTML, CSS, PHP<br> and Javascript. </p>
+
+            <h4 class="mt">PRIVACY & SECURITY</h4>
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="socmed.html">Social Media Policy</a>
+            <a href="copyright.html">Copyright Notice</a>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="footer-bottom">
+        <p>RollCall attendance management system is created by the students of 3wmad-1 for the better and secure attendance system of the organizations.</p>
+        <p>© 2025 RollCall Attendance Management System. All Rights Reserved.</p>
+    </div>
+</footer>
+</body>
+</html>
